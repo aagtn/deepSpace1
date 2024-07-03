@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+canvas {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#invadersCount {
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 99;
+    font-family: sans-serif;
+}
+
+#livesCtn {
+    position: absolute;
+    top: 50;
+    left: 0;
+    z-index: 99;
+    width: 100px;
+    height: 10px;
+    margin: 20px;
+    border: 1px solid white;
+    display: none;
+}
+
+#livesCtn .shieldBar {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .8);
+    
+}
+
+#livesCtn.on {
+    display: flex;
+}
+
+.lives-block {
+    position: relative;
+    transform: scale(.15);
+    transform-origin: top left;
+    width: 30px;
+    height: 10px;
+    display: none;
+}
+
+#menu {
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    color: white;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    display: none;
+}
+
+#menu.on {
+    display: flex;
+}
+
+#menu .title {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+#menu .message {
+    margin-top: 30px;
+    font-size: 18px;
+    opacity: 1;
+    animation: bling 1s steps(1, end) infinite;
+}
+
+@keyframes bling {
+    50% {
+        opacity: 0;
+    }
+}
