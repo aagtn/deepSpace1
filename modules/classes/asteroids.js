@@ -6,7 +6,7 @@ import { shipParams } from "../parameters/params.js";
 
 const asteroidsSkin = () => {
     const img = new Image()
-            img.src = "./models/asteroids/" + Math.round(randomVal(1,13)) + '.png' ;
+            img.src = "/models/asteroids/" + Math.round(randomVal(1,13)) + '.png' ;
             return img
 }
 
