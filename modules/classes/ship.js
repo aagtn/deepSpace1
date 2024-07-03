@@ -1,6 +1,6 @@
 const skin = () => {
     const img = new Image();
-    img.src = './models/spaceship.png';
+    img.src = '/models/spaceship.png';
     return img
 }
 

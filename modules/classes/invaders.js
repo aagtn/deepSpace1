@@ -5,7 +5,7 @@ import { invaders,pushnewBlast } from "../constructor/constructor.js";
 
 const invaderSkin = () => {
     const img = new Image();
-    img.src = './models/invader.png';
+    img.src = '/models/invader.png';
     return img
 }
 
