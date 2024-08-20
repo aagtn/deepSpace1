@@ -1,91 +1,10 @@
-import {canvas,ctx,randomVal,screenLimits,play,gameStates, levelUp, generateAsteroidsCloud} from "./modules/utils/utils.js";
+import { moveDirectionX,moveDirectionY,isSpacebarDown,isAkeyDown,distortion,moveCounterX,moveCounterY } from "./modules/parameters/controls.js";
+import {canvas,ctx,randomVal,screenLimits,play,gameStates, levelUp, generateAsteroidsCloud, rmControlsMenu} from "./modules/utils/utils.js";
 import Laser from "./modules/classes/laser.js";
 import { pushNewStars, stars, pushNewInvaders, invaders, invaderLazers, pushNewShip, ships, pushNewLazers, asteroids, blasts, shipLazersA, shipLazersB, blastParticle, torpedos,pushNewTorpedo,medecines } from "./modules/constructor/constructor.js";
 import {asteroidsParams,bigAsteroidsParams, shipParams} from "./modules/parameters/params.js";
 import Asteroids from "./modules/classes/asteroids.js";
 
-
-
-/*
-KEYBOARD CONTROLS
-*/
-
-let moveDirectionX = 0;
-let moveDirectionY = 0;
-let moveCounterX = 0;
-let moveCounterY = 0;
-let isSpacebarDown = false;
-let isAkeyDown = false;
-let distortion = false;
-
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowLeft') {
-        moveDirectionX = -1;
-    } else if (event.key === 'ArrowRight') {
-        moveDirectionX = 1;
-    }
-
-    if (event.key === 'ArrowUp') {
-        moveDirectionY = -1;
-        
-    } else if (event.key === 'ArrowDown') {
-        moveDirectionY = 1;
-    }
-
-    if (event.key === ' ') {
-        isSpacebarDown = true;
-    }
-
-    if(event.key === "d"){
-        distortion = true
-    }
-
-    if (event.key === "a" ) {
-        isAkeyDown = true
-    }
-
-    if (event.key === "Enter") {
-        if(!gameStates.gameIsRunning){
-            startGame();
-            play(gameStates)
-        }
-        
-        if(gameStates.gameOver){
-            window.location.reload()
-        }
-        
-    }
-
-});
-
-document.addEventListener('keyup', (event) => {
-    if (event.key === 'ArrowLeft' && moveDirectionX === -1) {
-        moveDirectionX = 0;
-        moveCounterX = 0;
-    }
-    if (event.key === 'ArrowRight' && moveDirectionX === 1) {
-        moveDirectionX = 0;
-        moveCounterX = 0;
-    }
-
-    if (event.key === 'ArrowUp' && moveDirectionY === -1) {
-        moveDirectionY = 0;
-        moveCounterY = 0;
-        //isArrowUp = false
-    }
-    if (event.key === 'ArrowDown' && moveDirectionY === 1) {
-        moveDirectionY = 0;
-        moveCounterY = 0;
-    }
-
-    if (event.key === ' ') {
-        isSpacebarDown = false;
-    }
-
-    if(event.key === "d"){
-        distortion = false
-    }
-});
 
 
 /*
@@ -96,7 +15,7 @@ pushNewStars(500)
 pushNewInvaders(2)
 pushNewShip(1)
 setInterval(() => {
-    if (gameStates.gameIsRunning) {
+    if (gameStates.gameIsRunning && !gameStates.home) {
     generateAsteroidsCloud(randomVal(10,20),asteroidsParams,bigAsteroidsParams,asteroids,Asteroids)
     }
 },5000)
@@ -110,6 +29,7 @@ function startGame() {
 
     let bulletFireTimer = 0
     let lightSpeed = 0
+    
     function gameLoop() {
 
         if (!gameStates.gameIsRunning) {
@@ -126,10 +46,6 @@ function startGame() {
             }
         }
 
-        if(isAkeyDown){
-            pushNewTorpedo(1,ships[0])
-            isAkeyDown = false
-        }
 
         if(distortion){
             if(lightSpeed < 15){

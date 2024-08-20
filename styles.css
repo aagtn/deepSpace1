@@ -2,6 +2,7 @@ body {
     margin: 0;
     overflow: hidden;
     font-family: sans-serif;
+    background-color: black;
 }
 
 canvas {
@@ -70,13 +71,20 @@ canvas {
     display: flex;
 }
 
+
+.space-land{
+    width: 70px;
+    height: 85px;
+    margin-bottom: 50px;
+}
+
 #menu .title {
-    font-size: 48px;
+    font-size: 2rem;
     font-weight: 700;
 }
 
 #menu .message {
-    margin-top: 30px;
+    margin-top: 80px;
     font-size: 18px;
     opacity: 1;
     animation: bling 1s steps(1, end) infinite;
@@ -86,4 +94,43 @@ canvas {
     50% {
         opacity: 0;
     }
+}
+
+
+.controls{
+    display: none;
+}
+
+.controls.on{
+    margin-top: 80px; 
+    color: rgba(255, 255, 255, .8);
+    border: 1px solid rgba(255, 255, 255, .4);
+    padding: 50px;
+    border-radius: 20px;
+    display: block;
+    backdrop-filter: blur(2px);
+}
+
+.controls .controls-title{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.controls .controls-sec{
+    display: flex;
+}
+
+.controls .controls-keys{
+    margin-left: 50px;
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+}
+
+.controls .controls-exps{
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    
 }

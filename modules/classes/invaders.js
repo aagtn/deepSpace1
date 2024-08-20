@@ -1,4 +1,4 @@
-import { canvas,detectColision,addShipDamage } from "../utils/utils.js";
+import { canvas,detectColision,addShipDamage, gameStates } from "../utils/utils.js";
 import { shipParams } from "../parameters/params.js";
 import { invaders,pushnewBlast } from "../constructor/constructor.js";
 
@@ -74,7 +74,7 @@ export default class Invader {
                 obj.x, obj.y, obj.width, obj.height,
                 this.x, this.y, this.width, this.height
             );
-            if (colision) {
+            if (colision && !gameStates.home) {
                 addShipDamage(obj, 1, shipParams, pushnewBlast);
                 if (shipParams.damagesCooldown) {
                     invaders.splice(index, 1);

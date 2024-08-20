@@ -2,18 +2,37 @@
 <html>
 
 <head>
-    <title>Space Invaders</title>
+    <title>Deep Space 1</title>
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="script.js" type="module"></script>
 </head>
 
 <body>
-    <div id='livesCtn'>
+    <div id="livesCtn">
         <div class="shieldBar"></div>
     </div>
-    <div id='invadersCount'></div>
+    <div id="invadersCount"></div>
     <div id="menu" class="on">
         <div class="title">DEEP SPACE 1</div>
+        <div class="controls on">
+            <div class="controls-title">Controls:</div>
+            <div class="controls-sec">
+                <div class="controls-exps">
+                    <span class="controls-exp">Rocket......</span>
+                    <span class="controls-exp">Distortion......</span>
+                    <span class="controls-exp">Lasers......</span>
+                    <span class="controls-exp">movements......</span>
+                </div>
+                <div class="controls-keys">
+                    <span class="controls-key">[a]</span>
+                    <span class="controls-key">[d]</span>
+                    <span class="controls-key">[space]</span>
+                    <span class="controls-key">[arrow keys]</span>
+                </div>
+
+            </div>
+        </div>
         <div class="message">Press enter to play</div>
     </div>
     <canvas id="gameCanvas" width="400" height="400"></canvas>

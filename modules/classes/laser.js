@@ -1,4 +1,4 @@
-import { canvas,detectColision,addShipDamage,randomVal } from "../utils/utils.js";
+import { canvas,detectColision,addShipDamage,randomVal, gameStates } from "../utils/utils.js";
 import { invaderLazers,pushnewBlast } from "../constructor/constructor.js";
 import { shipParams } from "../parameters/params.js";
 
@@ -69,7 +69,7 @@ export default class Laser {
                 this.x, this.y, this.width, this.height
             );
 
-            if (colision && elmt.type === "ship") {
+            if (colision && elmt.type === "ship" && !gameStates.home) {
                 addShipDamage(elmt, 1, shipParams, pushnewBlast);
             }
 

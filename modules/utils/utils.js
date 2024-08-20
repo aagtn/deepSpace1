@@ -1,3 +1,4 @@
+
 let canvasElmt = document.getElementById('gameCanvas')
 canvasElmt.width = window.innerWidth
 canvasElmt.height = window.innerHeight
@@ -14,10 +15,11 @@ export const canvas = canvasElmt
 export const ctx = canvas.getContext('2d');
 
 export let gameStates = {
-    gameIsRunning: false,
+    gameIsRunning: true,
     gameOver: false,
     points: 0,
     level: 1,
+    home:true,
 }
 
 export function randomVal(min, max) {
@@ -121,7 +123,7 @@ export function play(gameStates) {
     document.getElementById('livesCtn').classList.add('on')
     gameStates.gameIsRunning = true
     gameStates.points = 0
-    counter.innerText = 0
+    counter.innerText = 0     
 }
 
 export function displayMenu() {
@@ -150,3 +152,9 @@ export function generateAsteroidsCloud(nb, asteroidsParams,bigAsteroidsParams, a
     }
 
 }
+
+export function rmControlsMenu(){
+    const controls = document.querySelector('.controls')
+    controls.classList.remove('on')
+}
+

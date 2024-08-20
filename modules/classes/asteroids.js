@@ -1,4 +1,4 @@
-import { randomVal,addShipDamage } from "../utils/utils.js";
+import { randomVal,addShipDamage, gameStates } from "../utils/utils.js";
 import { asteroids,invaders } from "../constructor/constructor.js";
 import { canvas,detectColision } from "../utils/utils.js";
 import { pushnewBlast } from "../constructor/constructor.js";
@@ -81,7 +81,7 @@ export default class Asteroids {
                 ship.x, ship.y, ship.width, ship.height,
                 this.x, this.y, this.radius, this.radius
             );
-            if (colision && ship.type === "ship" && this.active) {
+            if (colision && ship.type === "ship" && this.active && !gameStates.home) {
                 addShipDamage(ship, 1, shipParams, pushnewBlast);
             }
 
